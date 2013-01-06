@@ -1,0 +1,448 @@
+    
+    /* Global Settings */
+    
+      body {
+        margin: 0em;
+        padding: 0em;
+        color: #fff;
+        background: url("http://meskarune.com/greytexture.png") repeat;
+        font-family: Alegreya, Georgia, serif;
+        font-size: 1.2em;
+      }
+      
+    /* Main Header and Main Footer Settings */
+      
+      header.main, footer.main {
+        color: #fff;
+        padding: 1em;
+        background-color: rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 1px 1px 0 rgba(200, 200, 200, .2), 0 1px 10px rgba(0, 0, 0, .8) inset;
+        -webkit-box-shadow: 1px 1px 0 rgba(200, 200, 200, .2), 0 1px 10px rgba(0, 0, 0, .8) inset;
+        box-shadow: 1px 1px 0 rgba(200, 200, 200, .2), 0 1px 10px rgba(0, 0, 0, .8) inset;
+      }
+      
+      footer {
+          text-align: center;
+      }
+      
+      img.avatar {
+        float: left;
+        margin-right: 1em;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+      }
+
+      input[type="text"] {
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.4);
+        float: right;
+        margin-top: -5em;
+        margin-right: 2em;
+        padding: .5em;
+        border: #181818 solid 1px;
+        -webkit-border-radius:10px;
+        -moz-border-radius:10px;
+        border-radius:10px
+        -moz-box-shadow:    1px 1px 0 rgba(200, 200, 200, .2), 0 1px 10px rgba(0, 0, 0, .8) inset;
+        -webkit-box-shadow: 1px 1px 0 rgba(200, 200, 200, .2), 0 1px 10px rgba(0, 0, 0, .8) inset;
+        box-shadow: 0px 1px 0 rgba(200, 200, 200, .1), 0 1px 10px rgba(0, 0, 0, .8) inset;
+      }
+      
+     a.top {
+        font-family: monospace;
+        border: 0;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.4);
+        margin-right: .2em;
+        padding-top: .3em;
+        padding-bottom: .3em;
+        padding-left: .6em;
+        padding-right: .6em;
+      }
+
+      
+      /* Navigation */
+      
+      nav {
+        text-align: center;
+        font-size: .9em;
+      }
+      
+      nav li {
+          list-style-type: none;
+          display: inline;
+      }
+      
+      /* Content Area */
+
+      #content {
+        width: 60%;
+        margin: 0 auto;
+      }
+      
+      /* Page Formating */
+      
+      .center {
+        text-align: center;
+      }
+
+      .right {
+        text-align: right;
+      }
+      
+      section.right {
+        float: right;
+        display: inline;
+        margin-right: 1.4em;
+      }
+      
+      .leftfixed {
+        position: fixed;
+        top: 1px;
+        left: 10px;
+      }
+
+      .rightfixed {
+        position: fixed;
+        bottom: 1px;
+        right: 10px;
+      }
+      
+      /* Text Formating */
+      
+      a:link, a:visited { 
+        text-decoration: none;
+        color: inherit;
+        opacity: .6;
+      }
+      a:hover, a:active { 
+        color: inherit;
+        opacity: .9; 
+      }
+      
+      h1, h2, h3, h4, h5 { 
+        font-weight: normal;
+      }
+      
+      h2 {
+          margin: 0;
+      }
+      
+      blockquote {
+        padding-left: 1em;
+        border-left: solid 3px;
+        line-height: 1.5;
+      }
+      
+      hr {
+        border: 0px;
+        height: 1px;
+        background-image: -webkit-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
+        background-image:    -moz-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
+	      background-image:     -ms-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
+        background-image:      -o-linear-gradient((left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
+        margin-top: 1em;
+      }
+
+      
+      /* Post Pages */
+      
+      ol.notes {
+          list-style-type: none;
+          font-size: .8em;
+          -moz-column-count: 3;
+          -webkit-column-count: 3;
+          column-count: 3;
+      }
+      
+      img.icon {
+        position: relative;
+        right: 5em;
+        top: 4em;
+        border: 0;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 1em;
+      }
+      
+      /* Post Footer */
+
+      footer.post {
+        color: #fff;
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-bottom: 2em;
+        padding: .5em;
+        text-align: center;
+        font-size: .8em;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%
+      }
+      
+      article {
+        margin: 0em;
+        padding: 2em;
+        border-bottom: #181818 solid 1px;
+        -moz-box-shadow: 0px 15px 10px -10px #181818;
+        -webkit-box-shadow: 0px 15px 10px -10px #181818;
+        box-shadow: 0px 15px 10px -10px #181818;
+      }
+      
+      /* Text Posts */
+
+      .text {
+        color: #303030;
+        font-family: "Special Elite";
+        background: url("http://meskarune.com/assets/images/whitepaper.jpg") repeat;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #fff;
+        -moz-box-shadow: 5px 5px 7px -2px #000;
+        -webkit-box-shadow: 5px 5px 7px -2px #000;
+        box-shadow: 5px 5px 7px -2px #000;
+      }
+      
+      .text h3 {
+        color: #000;
+        font-weight: bold;
+        display: inline;
+        font-size: 1.5em;
+      }
+
+      a:link.text, a:visited.text {
+        text-decoration: none;
+        color: #303030;
+        font-weight: bold;
+        opacity: 1;
+      }
+
+      a:hover.text {
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+        border-bottom: #000 solid 1px;
+        opacity: 1;
+      } 
+      
+      /* Photo Posts */
+      
+      .photo {
+        text-align: center;
+      }
+
+      .photo img {
+        -webkit-border-radius:10px;
+        -moz-border-radius:10px;
+        border-radius:10px;
+        -moz-box-shadow: 5px 5px 7px -2px #000;
+        -webkit-box-shadow: 5px 5px 7px -2px #000;
+        box-shadow: 5px 5px 7px -2px #000;
+      }
+
+      .photo blockquote {
+        text-align: left;
+        margin-left: 40%;
+      }
+      
+      /* Photoset Posts */
+      
+      .photoset {
+        text-align: center;
+        border: #303030 dotted 2.5px;
+        background-color: rgba(200, 200, 200, 0.2);
+        -moz-box-shadow: 0px 15px 10px -10px #181818;
+        -webkit-box-shadow: 0px 15px 10px -10px #181818;
+        box-shadow: 0px 15px 10px -10px #181818;
+      }
+      
+      .photoset blockquote {
+          text-align: left;
+      }
+
+      /* Quote Posts */
+      
+      .quote {
+        border-bottom: #181818 solid 1px;
+        -moz-box-shadow: 0px 15px 10px -10px #181818;
+        -webkit-box-shadow: 0px 15px 10px -10px #181818;
+        box-shadow: 0px 15px 10px -10px #181818;
+      }
+
+      p.quote {
+        margin-left: 20%;
+        margin-right: 20%;
+        padding: .3em;
+        -webkit-border-radius:10px;
+        -moz-border-radius:10px;
+        border-radius:10px;
+        color: #303030;
+        font-weight: bold;
+        background: #fff;
+        line-height: 1.5;
+        text-align: left;
+      } 
+
+      p.quote:after {
+          content:"";
+          position: absolute;
+          left: 1em; /* controls horizontal position */
+          margin-left: 58%;
+	      border-width:15px 15px 0; /* vary these values to change the angle of the vertex */
+	      border-style:solid;
+	      border-color:#fff transparent;
+          /* reduce the damage in FF3.0 */
+          display:block; 
+          width:0;
+      }
+
+      .source {
+        margin-left: 61%;
+        margin-bottom: 0em;
+        padding-left: 1em;
+      }
+      
+      /* Link Posts */
+      
+      a.url {
+        background: #AF192F;
+        opacity: 1;
+        padding: .5em 3em .5em 3em;
+        float: right;
+        margin: 1em;
+        display: inline;
+        border: #AF192F solid 1px;
+        -moz-box-shadow:    7px 8px 9px -2px #181818;
+        -webkit-box-shadow: 7px 8px 9px -2px #181818;
+        box-shadow:         7px 8px 9px -2px #181818;
+      }
+      
+      span.link {
+          color: #AF192F;
+      }
+      
+      a.url:hover span {
+          color: #fff;
+      }
+      
+      /* Chat Posts */
+      
+      .chat {
+        margin: 0 auto;
+        padding: 0em;
+      }
+      
+      .label {
+        font-weight: bold;
+      }
+      
+      dl {
+        margin: 0em;
+      }
+      
+      dt {
+        float: left;
+     
+        padding: 1em;
+        font-weight: bold;
+      }
+      
+      dd {
+        padding: 1em 0em 1em 8em;
+        -webkit-margin-start: 0px;
+      }
+      
+      dt.even {
+        color: #AF192F;
+        border-left: solid 3px;
+        color: #AF192F;
+      }
+      
+      dt.odd {
+        color: #FFF080;
+      }
+      
+      dd.even {
+        box-shadow: 0 1px 5px black, 0 0 50px -20px black inset;
+        border-radius: 1%     1%     1%     1% /     1%     1%     1%     1%;
+      }
+      
+      dd.odd {
+        border-right: rgba(255, 240, 128, 1) solid 2px;
+        border-style: inset;
+        border-top: #0a0a0a solid 1.5px;
+        border-left: #0a0a0a solid 1.5px;
+        border-bottom: #181818 solid 0px;
+        background-color: rgba(0, 0, 0, 0.4);
+        -moz-box-shadow:    1px 1px 0 rgba(200, 200, 200, .2), 0 1px 10px rgba(0, 0, 0, .8) inset;
+        -webkit-box-shadow: 1px 1px 0 rgba(200, 200, 200, .2), 0 1px 10px rgba(0, 0, 0, .8) inset;
+        box-shadow: 1px 1px 0 rgba(200, 200, 200, .2), 0 1px 10px rgba(0, 0, 0, .8) inset;
+      }
+      
+      
+      /* Audio Posts */
+      
+      #music {
+        height: 200px;
+        width: 800px;
+      }
+
+      #audioplayer {
+        width: 20px;
+        height: 40px;
+        overflow: hidden;
+        margin: -6px 18px 20px 14px;
+      }
+
+      #audioplayercircle {
+        position: absolute;
+        margin-left: 136px;
+        margin-top: -3.5em;
+        z-index: 3;
+        background: black;
+        border-radius: 30px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        opacity: .8;
+      }
+
+      .audio img {
+        float: left;
+        margin-right: 2em;
+        background: url("http://doloresportalatin.info/blog/themes/lola/stylesheets/images/record.png");
+        padding-left: 62px;
+        padding-right: 62px;
+        width: 200px;
+      }
+
+      .audio blockquote {
+        text-align: left;
+        margin-left: 20%;
+      }
+      
+      .caption {
+          text-align: center;
+      }
+
+      /* Video Posts */
+      
+      .video {
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+      
+      .video iframe {
+        padding: 3.5em;
+        background-color: rgba(0, 0, 0, 0.4);
+        -webkit-border-radius:10px;
+        -moz-border-radius:10px;
+        border-radius:10px;
+        -moz-box-shadow:    1px 1px 0 rgba(200, 200, 200, .2), 0 1px 10px rgba(0, 0, 0, .8) inset;
+        -webkit-box-shadow: 1px 1px 0 rgba(200, 200, 200, .2), 0 1px 10px rgba(0, 0, 0, .8) inset;
+        box-shadow: 1px 1px 0 rgba(200, 200, 200, .2), 0 1px 10px rgba(0, 0, 0, .8) inset;
+      }
+      
+      /* Answer Posts */
