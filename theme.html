@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{Title}{block:PostTitle}: {PostTitle}{/block:PostTitle}</title>
+    {block:Description}
+    <meta name="description" content="{MetaDescription}">
+    {/block:Description}
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Tumblr Theme configuration -->
+
+    <meta name="text:Footer Text" content=""/>
+    
+
+    <meta name="if:Show Random Link" content="1" />
+    <meta name="if:Endless Scrolling" content="0" />
+    <meta name="if:Notes" content="1" />
+    <meta name="if:Description" content="1" />
+    
+    <meta name="if:Use HighRes Photos" content="1"/>
+    <meta name="if:Use Number Pagination" content="0"/>
+    
+    <meta name="text:Homepage" content="" />
+    <meta name="text:Twitter" content="" />
+    <meta name="text:Disqus Shortname" content="" />
+    <meta name="text:Google Analytics ID" content=""/>
+
+    <!-- END Tumblr Theme configuration -->
+
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="apple-touch-icon" href="{PortraitURL-128}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+
+    <link rel="stylesheet" href="https://raw.github.com/wxrod/Tumblr-HTML5-Blank-Theme/master/css/normalize.min.css">
+
+
+    <!-- Custom Fonts -->
+    
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Alegreya:400,700'>
+
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Special+Elite'>
+    
+    <!-- End Custom Fonts -->
+
+    <style type="text/css">
+        {CustomCss}
+    </style>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
+    <p class="rightfixed"><a class="top" href="#top">&#708;</a></p>
+    <p class="leftfixed"><a class="top" href="#bottom">&#8744;</a></p>
+      <!--PAGE HEADER ******************************************************************* -->
+      <header class="main">
+        <img class="avatar" alt="avatar" src="{PortraitURL-64}">
+        <h2><a href="/">{Title}</a></h2>
+        <section class="right">
+            <a class="top" title="info" href="{text:Homepage}">i</a>
+            {block:AskEnabled}
+                <a class="top" title="ask" href="/ask">?</a>
+            {/block:AskEnabled}
+            {block:ifShowRandomLink}
+                <a class="top" title="random" href="/random">@</a>
+            {/block:ifShowRandomLink}
+            <a class="top" title="rss" href="{RSS}">+</a>
+            {block:IfTwitter}
+                <a class="top" title="twitter" href="http://twitter.com/{text:Twitter}">t</a>
+            {/block:IfTwitter}
+        </section>
+         {block:IfDescription}
+             {block:Description}
+                {Description}
+            {/block:Description}
+        {/block:IfDescription}
+        <form action="/search" method="get" class="search">
+        <input type="text" placeholder="{lang:Search}..." name="q" value="{SearchQuery}"/>
+        </form>
+    </header>
+        
+      <!--PAGE LOOP ******************************************************************* -->
+      <div id="content" role="main">
+      <nav>
+          <ul>
+            {block:HasPages}
+            {block:Pages}
+            <li><a href="{URL}">{Label}</a></li>
+            {/block:Pages}
+            {/block:HasPages}
+          </ul>
+        </nav>  
+        
+        {block:DayPage}
+          <p class="center" style="margin-left: 40px">{Month} {DayOfMonth}, {Year}</p>
+        {/block:DayPage}
+        {block:TagPage}
+          <p class="center" style="margin-left: 40px">Posts {lang:Tagged with} "{Tag}"</p>
+        {/block:TagPage}
+        {block:SearchPage}
+          <p class="center" style="margin-left: 40px">{lang:Found SearchResultCount results for SearchQuery}</p>
+        {/block:SearchPage}
+        {block:NoSearchResults}
+          <p class="center" style="margin-left: 40px">{lang:No posts containing SearchQuery}</p>
+        {/block:NoSearchResults}
+        
+        {block:Posts}
+
+        {block:Text}
+          <a href="{Permalink}">
+            <img class="icon" alt="permalink" src="http://meskarune.com/assets/images/icons/PNG/pencil.png" />
+          </a>
+          <article class="post text">
+            {block:Title}
+            <header>
+              <h3 class="entry-title">{Title}</h3>
+            {/block:Title}
+            </header>
+            <p>
+              {Body}
+            </p>
+        {/block:Text}
+
+        {block:Photo}
+          <a href="{Permalink}">
+            <img class="icon" alt="permalink" src="http://meskarune.com/assets/images/icons/PNG/camera.png" />
+          </a>
+          <article class="post photo">
+            <figure>
+              {LinkOpenTag}
+                {block:IfUseHighResPhotos}
+                  <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                {/block:IfUseHighResPhotos}
+                {block:IfNotUseHighResPhotos}
+                  <img src="{PhotoURL-500}" alt="{PhotoAlt}" />
+                {/block:IfNotUseHighResPhotos}
+              {LinkCloseTag}
+
+              {block:IfNotUseHighResPhotos}
+                {block:HighRes}
+                <a class="high-res" href="{PhotoURL-HighRes}">High-Res</a>
+                {/block:HighRes}
+              {/block:IfNotUseHighResPhotos}
+
+              {block:Caption}
+                <figcaption>
+                  {Caption}
+                </figcaption>
+              {/block:Caption}
+            </figure>
+        {/block:Photo}
+
+        {block:Photoset}
+          <a href="{Permalink}">
+            <img class="icon" alt="permalink" src="http://meskarune.com/assets/images/icons/PNG/briefcase.png" />
+          </a>
+          <article class="post photoset">
+            <figure>
+              {Photoset-500}
+              {block:Caption}
+                <figcaption>
+                  {Caption}
+                </figcaption>
+              {/block:Caption}
+            </figure>
+        {/block:Photoset}
+
+        {block:Quote}
+          <a href="{Permalink}">
+            <img class="icon" alt="permalink" src="http://meskarune.com/assets/images/icons/PNG/comment.png" />
+          </a>
+          <article class="post quote">
+            <p class="quote">" {Quote} "</p>
+            {block:Source}
+              <p class="source">{Source}</p>
+            {/block:Source}
+        {/block:Quote}
+
+        {block:Link}
+        <a href="{Permalink}">
+          <img class="icon" alt="permalink" src="http://meskarune.com/assets/images/icons/PNG/link.png" />      
+        </a>
+          <article class="post link">
+            <header>
+              <h3>
+                <a class="url" href="{URL}" {Target}>{Name} <span class="link">&rarr;</span></a>
+              </h3>
+            </header> 
+            {block:Description}
+                <p> {Description} </p>
+            {/block:Description}
+        {/block:Link}
+
+        {block:Chat}
+          <a href="{Permalink}">
+            <img class="icon" alt="permalink" src="http://meskarune.com/assets/images/icons/PNG/chat.png" />
+          </a>
+          <article class="post chat">
+            {block:Title}
+            <header>
+              <h3>{Title}</h3>
+            </header>
+            {/block:Title}
+            <dl>
+              {block:Lines}
+                {block:Label}
+                  <dt class="{Alt} {UserNumber}">
+                    {Label}
+                  </dt>
+                {/block:Label}
+                <dd class="{Alt}"> {Line} </dd>
+              {/block:Lines}
+            </dl> 
+        {/block:Chat}
+
+        {block:Audio}
+        <a href="{Permalink}">
+            <img class="icon" alt="permalink" src="http://meskarune.com/assets/images/icons/PNG/music.png" />
+          </a>
+          <article class="post audio">
+            <header>
+              <h2 class="center">
+                {block:Artist}
+                  {Artist} -
+                {/block:Artist}
+               
+                {block:TrackName}
+                  {TrackName}
+                {/block:TrackName}
+              </h2>
+            </header>
+            <hr />
+            <div id="music">
+                {block:AlbumArt}
+                    <img src="{AlbumArtURL}"/>
+                {/block:AlbumArt}
+                
+                <p>{block:TrackName}
+                    Song: {TrackName}
+                {/block:TrackName}<br /> 
+                
+                {block:Artist}
+                    Artist: {Artist}
+                {/block:Artist}<br />
+                
+                {block:Album}
+                    Album: {Album}
+                {/block:Album}</p>
+                
+                <p>{block:PlayCount}
+                    Played {FormattedPlayCount} times
+                {/block:PlayCount}</p>
+                
+                {block:AudioPlayer}
+                  <div id="audioplayercircle">
+                      <div id="audioplayer">
+                          <p>{AudioPlayerBlack}</p>
+                      </div>
+                  </div>
+                {/block:AudioPlayer} 
+            </div>
+            <hr />
+                {block:Caption}
+                    <div class="center">{Caption}</div>
+                {/block:Caption}
+        {/block:Audio}
+
+        {block:Video}
+        <a href="{Permalink}">
+            <img class="icon" alt="permalink" src="http://meskarune.com/assets/images/icons/PNG/movie.png" />
+          </a>
+          <article class="post video">
+            <figure>
+              {Video-500}
+              {block:Caption}
+                <figcaption>
+                  {Caption}
+                </figcaption>
+              {/block:Caption}
+            </figure>
+        {/block:Video}
+
+        {block:Answer}
+          <article class="post answer">
+            <dialog>
+              <dt><img src="{AskerPortraitURL-16}"> {lang:Asker asked 2}: </dt>
+              <dd>{Question}</dd>
+
+              <dd>{Answer}</dd>
+            </dialog>
+        {/block:Answer}
+          </article>
+          <footer class="post">
+                Posted by <a href="{PostAuthorURL}">{PostAuthorName}</a> on
+                {block:Date} 
+                    {DayOfWeek}, <a href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}/">{Month} {MonthNumberWithZero} {Year}</a> ({TimeAgo}) at {12HourWithZero}:{Minutes}:{Seconds} {AmPm} 
+                {/block:Date}
+                {block:HasTags} 
+                    in 
+                        {block:Tags}
+                            &nbsp;<a href="{TagURL}">#{Tag}</a>&nbsp;
+                        {/block:Tags}
+                {/block:HasTags}
+                <br />&nbsp; • &nbsp; 
+                {block:NoteCount}
+                    <a href="{Permalink}#notes">{NoteCountWithLabel}</a>
+                    &nbsp; • &nbsp;
+                {/block:NoteCount}
+                {block:IfDisqusShortname}
+                    <a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a>
+                &nbsp; • &nbsp;
+                {block:IfDisqusShortname}
+
+              {block:PermalinkPage}
+                {block:PostNotes}<div>{PostNotes}</div>{/block:PostNotes}
+              {/block:PermalinkPage}   
+            </footer>
+        {/block:Posts}
+        
+        <!-- Disqus Comments Code -->
+        
+        {block:IfDisqusShortname}<script type="text/javascript">var disqus_url = "{Permalink}"; var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";</script>{block:Permalink}<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /**
+* var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]
+*/
+  (function() {
+   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://{text:Disqus Shortname}.disqus.com/embed.js';
+   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+{/block:Permalink}<script type="text/javascript">
+var disqus_shortname = '{text:Disqus Shortname}';
+(function () {
+  var s = document.createElement('script'); s.async = true;
+  s.src = 'http://{text:Disqus Shortname}.disqus.com/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+{/block:IfDisqusShortname}
+
+<!-- End Disqus Comments Code -->
+
+    <div class=”notes”>
+        {block:PostNotes}
+            <a name=”notes”>{PostNotes-16}</a>
+        {/block:PostNotes}
+    </div>
+        
+      <!-- PAGE FOOTER  -->
+      {block:PermalinkPagination}
+          <nav>
+            {block:PreviousPost}
+                <a href="{PreviousPost}">« {lang:Previous}</a>
+            {/block:PreviousPost} 
+            {block:NextPost}
+                <a href="{NextPost}">{lang:Next} »</a>
+            {/block:NextPost} 
+          </nav>
+        {/block:PermalinkPagination}
+
+        {block:IndexPage}
+          {block:Pagination}
+            <nav>
+              {block:PreviousPage}
+                  <a href="{PreviousPage}">« {lang:Newer}</a>
+              {/block:PreviousPage}
+
+              {block:IfUseNumberPagination}
+                {block:JumpPagination length="5"}
+                    {block:CurrentPage}
+                        <span>{PageNumber}</span>
+                    {/block:CurrentPage}
+                    {block:JumpPage}
+                        <a href="{URL}">{PageNumber}</a>
+                    {/block:JumpPage}
+                {/block:JumpPagination}
+              {/block:IfUseNumberPagination}
+
+              {block:NextPage}
+                  <a href="{NextPage}">{lang:Older} »</a>
+              {/block:NextPage}
+            </nav>
+          {/block:Pagination}
+        {/block:IndexPage}
+        
+        <p class="center">
+            {block:NextPage}
+                <a href="{NextPage}">&#171; Older </a>
+            {/block:NextPage}
+            <a href="/archive">&nbsp; Archive &nbsp;</a>
+            {block:PreviousPage}
+                <a href="{PreviousPage}">Newer &#187;</a>
+            {/block:PreviousPage}
+        </p>
+      </div>
+      <footer class="main">
+        <p>{text:Footer Text}</p>
+            <p class="right">
+ test
+</p>
+<hr />
+<p class="center" style="font-size:.8em;margin-bottom:0em"><a href="http://tumblr.com">Tumblr</a> Theme: Elegant Grey by <a id="bottom" href="http://doloresportalatin.info">Dolores Portalatin</a></p>
+      </footer>
+      
+    {block:IfGoogleAnalyticsID}    
+    <script>
+      var _gaq=[['_setAccount','{text:Google Analytics ID}'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+    {/block:IfGoogleAnalyticsID}    
+  </body>
+</html>
