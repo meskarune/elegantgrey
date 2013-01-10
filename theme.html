@@ -1,11 +1,6 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{Title}{block:PostTitle}: {PostTitle}{/block:PostTitle}</title>
     {block:Description}
     <meta name="description" content="{MetaDescription}">
@@ -16,9 +11,6 @@
 
     <meta name="text:Footer Text" content=""/>
     
-
-    <meta name="if:Show Random Link" content="1" />
-    <meta name="if:Endless Scrolling" content="0" />
     <meta name="if:Notes" content="1" />
     <meta name="if:Description" content="1" />
     
@@ -35,10 +27,10 @@
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="apple-touch-icon" href="{PortraitURL-128}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
-
+    
     <link rel="stylesheet" href="https://raw.github.com/wxrod/Tumblr-HTML5-Blank-Theme/master/css/normalize.min.css">
-    <link rel="stylesheet" href="https://raw.github.com/meskarune/elegantgrey/master/screen.css">
-
+    <link rel="stylesheet" href="https://raw.github.com/meskarune/elegantgrey/master/screen.css"
+        
     <!-- Custom Fonts -->
     
     <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Alegreya:400,700'>
@@ -52,6 +44,7 @@
     </style>
   </head>
   <body>
+  <a name="top" id="top"></a>
     <!--[if lt IE 7]>
     <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -80,21 +73,12 @@
             {/block:Description}
         {/block:IfDescription}
         <form action="/search" method="get" class="search">
-        <input type="text" placeholder="{lang:Search}..." name="q" value="{SearchQuery}"/>
+         <input type="text" placeholder="{lang:Search}..." name="q" value="{SearchQuery}"/>
         </form>
     </header>
         
       <!--PAGE LOOP ******************************************************************* -->
       <div id="content" role="main">
-      <nav>
-          <ul>
-            {block:HasPages}
-            {block:Pages}
-            <li><a href="{URL}">{Label}</a></li>
-            {/block:Pages}
-            {/block:HasPages}
-          </ul>
-        </nav>  
         
         {block:DayPage}
           <p class="center" style="margin-left: 40px">{Month} {DayOfMonth}, {Year}</p>
@@ -110,10 +94,22 @@
         {/block:NoSearchResults}
         
         {block:Posts}
-
+              {block:PermalinkPage}
+                {block:PermalinkPagination}
+                    <nav>
+                      {block:PreviousPost}
+                          <a href="{PreviousPost}">« Prior post &nbsp;</a>
+                      {/block:PreviousPost} 
+                      <a href="/random">&nbsp; Random &nbsp;</a>
+                      {block:NextPost}
+                          <a href="{NextPost}">&nbsp; Next post »</a>
+                      {/block:NextPost} 
+                    </nav>
+                {/block:PermalinkPagination}
+              {/block:PermalinkPage}   
         {block:Text}
           <a href="{Permalink}">
-            <img class="icon" alt="permalink" src="http://meskarune.com/assets/images/icons/PNG/pencil.png" />
+            <img class="icon" alt="permalink" src="http://static.tumblr.com/jvkwxei/QP9mgemmj/pencil.png" />
           </a>
           <article class="post text">
             {block:Title}
@@ -128,24 +124,13 @@
 
         {block:Photo}
           <a href="{Permalink}">
-            <img class="icon" alt="permalink" src="http://meskarune.com/assets/images/icons/PNG/camera.png" />
+            <img class="icon" alt="permalink" src="http://static.tumblr.com/jvkwxei/OO6mgemnu/camera.png" />
           </a>
           <article class="post photo">
             <figure>
               {LinkOpenTag}
-                {block:IfUseHighResPhotos}
-                  <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
-                {/block:IfUseHighResPhotos}
-                {block:IfNotUseHighResPhotos}
                   <img src="{PhotoURL-500}" alt="{PhotoAlt}" />
-                {/block:IfNotUseHighResPhotos}
               {LinkCloseTag}
-
-              {block:IfNotUseHighResPhotos}
-                {block:HighRes}
-                <a class="high-res" href="{PhotoURL-HighRes}">High-Res</a>
-                {/block:HighRes}
-              {/block:IfNotUseHighResPhotos}
 
               {block:Caption}
                 <figcaption>
@@ -157,7 +142,7 @@
 
         {block:Photoset}
           <a href="{Permalink}">
-            <img class="icon" alt="permalink" src="http://meskarune.com/assets/images/icons/PNG/briefcase.png" />
+            <img class="icon" alt="permalink" src="http://static.tumblr.com/jvkwxei/S9Tmgemp3/briefcase.png" />
           </a>
           <article class="post photoset">
             <figure>
@@ -172,18 +157,18 @@
 
         {block:Quote}
           <a href="{Permalink}">
-            <img class="icon" alt="permalink" src="http://meskarune.com/assets/images/icons/PNG/comment.png" />
+            <img class="icon" alt="permalink" src="http://static.tumblr.com/jvkwxei/bBNmgemq6/comment.png" />
           </a>
           <article class="post quote">
             <p class="quote">" {Quote} "</p>
             {block:Source}
-              <p class="source">{Source}</p>
+              <div class="source">{Source}</div>
             {/block:Source}
         {/block:Quote}
 
         {block:Link}
         <a href="{Permalink}">
-          <img class="icon" alt="permalink" src="http://meskarune.com/assets/images/icons/PNG/link.png" />      
+          <img class="icon" alt="permalink" src="http://static.tumblr.com/jvkwxei/HR8mgen1h/link.png" />      
         </a>
           <article class="post link">
             <header>
@@ -198,7 +183,7 @@
 
         {block:Chat}
           <a href="{Permalink}">
-            <img class="icon" alt="permalink" src="http://meskarune.com/assets/images/icons/PNG/chat.png" />
+            <img class="icon" alt="permalink" src="http://static.tumblr.com/jvkwxei/BcUmgen2u/chat.png" />
           </a>
           <article class="post chat">
             {block:Title}
@@ -220,7 +205,7 @@
 
         {block:Audio}
         <a href="{Permalink}">
-            <img class="icon" alt="permalink" src="http://meskarune.com/assets/images/icons/PNG/music.png" />
+            <img class="icon" alt="permalink" src="http://static.tumblr.com/jvkwxei/y8cmgen4l/music.png" />
           </a>
           <article class="post audio">
             <header>
@@ -272,7 +257,7 @@
 
         {block:Video}
         <a href="{Permalink}">
-            <img class="icon" alt="permalink" src="http://meskarune.com/assets/images/icons/PNG/movie.png" />
+            <img class="icon" alt="permalink" src="http://static.tumblr.com/jvkwxei/yocmgen5v/movie.png" />
           </a>
           <article class="post video">
             <figure>
@@ -287,12 +272,9 @@
 
         {block:Answer}
           <article class="post answer">
-            <dialog>
-              <dt><img src="{AskerPortraitURL-16}"> {lang:Asker asked 2}: </dt>
-              <dd>{Question}</dd>
-
-              <dd>{Answer}</dd>
-            </dialog>
+             {Asker}
+             <div class="arrow_box">{Question}</div>
+             {Answer}
         {/block:Answer}
           </article>
           <footer class="post">
@@ -316,9 +298,7 @@
                 &nbsp; • &nbsp;
                 {block:IfDisqusShortname}
 
-              {block:PermalinkPage}
-                {block:PostNotes}<div>{PostNotes}</div>{/block:PostNotes}
-              {/block:PermalinkPage}   
+
             </footer>
         {/block:Posts}
         
@@ -356,23 +336,10 @@ var disqus_shortname = '{text:Disqus Shortname}';
     </div>
         
       <!-- PAGE FOOTER  -->
-      {block:PermalinkPagination}
-          <nav>
-            {block:PreviousPost}
-                <a href="{PreviousPost}">« {lang:Previous}</a>
-            {/block:PreviousPost} 
-            {block:NextPost}
-                <a href="{NextPost}">{lang:Next} »</a>
-            {/block:NextPost} 
-          </nav>
-        {/block:PermalinkPagination}
-
+      
         {block:IndexPage}
           {block:Pagination}
             <nav>
-              {block:PreviousPage}
-                  <a href="{PreviousPage}">« {lang:Newer}</a>
-              {/block:PreviousPage}
 
               {block:IfUseNumberPagination}
                 {block:JumpPagination length="5"}
@@ -384,15 +351,11 @@ var disqus_shortname = '{text:Disqus Shortname}';
                     {/block:JumpPage}
                 {/block:JumpPagination}
               {/block:IfUseNumberPagination}
-
-              {block:NextPage}
-                  <a href="{NextPage}">{lang:Older} »</a>
-              {/block:NextPage}
             </nav>
           {/block:Pagination}
         {/block:IndexPage}
         
-        <p class="center">
+        <p class="center" style="margin:1em">
             {block:NextPage}
                 <a href="{NextPage}">&#171; Older </a>
             {/block:NextPage}
@@ -403,12 +366,26 @@ var disqus_shortname = '{text:Disqus Shortname}';
         </p>
       </div>
       <footer class="main">
+         <nav>
+            <ul>
+              {block:HasPages}
+                {block:Pages}
+                  <li><a href="{URL}">{Label}</a></li>
+                {/block:Pages}
+              {/block:HasPages}
+            </ul>
+          </nav>
+        <!-- ><section class="flickr">
+                <div id="flickr_badge_wrapper">
+                    <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=4&display=latest&size=s&layout=x&source=user&user=24173295@N07"></script>
+                </div>
+            </section> -->
         <p>{text:Footer Text}</p>
-            <p class="right">
- test
-</p>
-<hr />
-<p class="center" style="font-size:.8em;margin-bottom:0em"><a href="http://tumblr.com">Tumblr</a> Theme: Elegant Grey by <a id="bottom" href="http://doloresportalatin.info">Dolores Portalatin</a></p>
+           
+        <hr />
+        <p class="center" style="font-size:.8em;margin-bottom:0em">
+        <a href="http://tumblr.com">Tumblr</a> Theme: Elegant Grey by <a id="bottom" href="http://doloresportalatin.info">Dolores Portalatin</a>
+        </p>
       </footer>
       
     {block:IfGoogleAnalyticsID}    
